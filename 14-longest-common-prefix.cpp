@@ -32,8 +32,11 @@ using namespace std;
 class Solution {
 public:
     string longestCommonPrefix(vector<string>& strs) {
-        string res = ""; // resultado inicial vazio
-        // ponto para você colocar breakpoints ou prints depois
+        string res = "";
+        
+        for (int i = 0; i < strs.size(); i++) {
+            cout << strs[i] << endl;
+        }
         return res;
     }
 };
