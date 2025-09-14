@@ -34,9 +34,39 @@ public:
     string longestCommonPrefix(vector<string>& strs) {
         string res = "";
         
-        for (int i = 0; i < strs.size(); i++) {
-            cout << strs[i] << endl;
-        }
+        int k = 0;
+        bool finished = false
+        while (!finished) {
+            vector<string> prefixes;
+
+            for (int i = 0; i < strs.size(); i++) {
+                string temp(1, strs[i][k]);
+                prefixes.push_back(temp);
+            }
+
+            unordered_map<string, int> seen;
+            vector<string> newStrs;
+            for (int i = 0; i < prefixes.size(); i++) {
+                string j = prefixes[i];
+
+                if (seen.find(j) != seen.end()) {
+                    cout << "Duplicata encontrada: " << j << endl;
+                    cout << "Primeira ocorrência no índice: " << seen[j] << endl;
+                    cout << "Duplicata no índice: " << i << endl;
+
+                    
+                    newStrs.push_back(strs[i]);
+                } else {
+                    seen[j] = i;
+                }
+            }
+            
+            strs = newStrs;
+
+        k++;
+    }
+
+        
         return res;
     }
 };
